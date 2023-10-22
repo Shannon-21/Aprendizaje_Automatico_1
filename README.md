@@ -9,7 +9,9 @@
 
 <br>
 
-**Fecha**: 13/10/2023
+**Fechas**:
+- 13/10/2023 (entrega 1, hasta item 3)
+- 27/10/2023 (entrega 2, hasta item 4)
 
 ---
 
