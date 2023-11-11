@@ -33,7 +33,10 @@ Es claro que un el modelo por si solo no puede realizar un buen trabajo si el da
 Como segunda etapa planteamos el analisis descriptivo de los datos, ya que es de importancia conocer el contexto de los datos e interpretar correctamente como se relacionan las variables entre si.\
 <br>
 
-Por ultimo, se realizan las predicciones con los diferentes modelos y se comparan sus rendimientos utilizando metricas de validacion para comprender cual y por que un modelo hace mejor que los demas.
+Luego, se realizan las predicciones con los diferentes modelos y se comparan sus rendimientos utilizando metricas de validacion para comprender cual y por que un modelo hace mejor que los demas.\
+<br>
+
+Por ultimo, se plantea elegir metodos de optimizcion de hiperparametros, mejorar la explicabilidad del modelo y simular la puesta en produccion de los mismos.
 
 
 ## **Acceso**
@@ -42,4 +45,6 @@ Puedes visualizar el archivo con sus respectivas salidas directamente desde goog
 
 Parte 1: https://drive.google.com/file/d/1Itfa8GS_oLb3NQ77ukn1l7NVXI_yRzZA/view?usp=sharing
 
-Parte2: https://colab.research.google.com/drive/1fAJg2q44kdz2xVoEsZaFk9BKGwAMyaY8?usp=sharing
+Parte 2: https://colab.research.google.com/drive/1fAJg2q44kdz2xVoEsZaFk9BKGwAMyaY8?usp=sharing
+
+Parte 3: https://colab.research.google.com/drive/1TmHG9jfYrZ7_V1xzbxMAnno5BNyeAw0b?usp=sharing
