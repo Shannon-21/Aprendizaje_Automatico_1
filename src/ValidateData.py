@@ -14,7 +14,7 @@ class ValidateData:
         expected_columns = [
             'Date', 'Location',
             'MinTemp', 'MaxTemp', 
-            'Rainfall', 
+            'Rainfall', 'RainToday',
             'Evaporation','Sunshine', 
             'WindGustDir', 'WindGustSpeed', 
             'WindDir9am', 'WindDir3pm',
@@ -22,13 +22,12 @@ class ValidateData:
             'Humidity9am', 'Humidity3pm',
             'Pressure9am', 'Pressure3pm', 
             'Cloud9am', 'Cloud3pm', 
-            'Temp9am', 'Temp3pm', 
-            
+            'Temp9am', 'Temp3pm',
         ]
         expected_dtypes = {
             'Date': 'object', 'Location': 'object',
             'MinTemp': 'float64', 'MaxTemp': 'float64',
-            'Rainfall': 'float64',
+            'Rainfall': 'float64', 'RainToday': 'object',
             'Evaporation': 'float64', 'Sunshine': 'float64',
             'WindGustDir': 'object', 'WindGustSpeed': 'float64',
             'WindDir9am': 'object', 'WindDir3pm': 'object',
