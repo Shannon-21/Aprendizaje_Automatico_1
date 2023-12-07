@@ -1,7 +1,6 @@
 import joblib
 
 class Transformadores:
-
   def __init__(self):
     self.encoder_cats = {'Location': {'Sydney': 0.41639937494859774,
                           'Melbourne': 0.360144748745785,

@@ -2,11 +2,15 @@ import pandas as pd
 import numpy as np
 import calendar
 
-class ValidateData:
-    def __init__(self, df):
-        self.df = self.validar_dataset(df)
 
-    def validar_dataset(self, df):
+class ValidateData:
+    def __init__(self):
+        pass
+
+    def load_data(self, df):
+        self.df = df
+
+    def validar_dataset(self):
         expected_columns = [
             'Date', 'Location',
             'MinTemp', 'MaxTemp', 
@@ -36,16 +40,14 @@ class ValidateData:
             
         }
 
-        # Filtrar columnas adicionales
-        df_c = df[expected_columns]
+        df_c = self.df[expected_columns]
 
-        # Validar tipos de datos de las columnas presentes en la lista
         for col in expected_columns:
             if col in df_c.columns and df_c[col].dtype != expected_dtypes[col]:
                 raise ValueError(f"El tipo de dato de la columna {col} no es el esperado.")
 
         print('Las columnas y tipos de datos mínimos son correctos.')
-        return df
+        return self.df
 
     def filtrar_localidades(self):
         localidades = ['Sydney', 'SydneyAirport', 'Canberra', 'Melbourne', 'MelbourneAirport']
@@ -71,9 +73,3 @@ class ValidateData:
 
         seasons = ['Summer', 'Autumn', 'Winter', 'Spring']
         self.df['Season'] = np.select(conditions, seasons, default='Unknown')
-
-    def obtener_dataframe_procesado(self):
-        df_cf = self.filtrar_localidades(self.df)
-        df_cb = self.binarize_cols(df_cf)
-        df_cs = self.procesar_fecha(df_cb)
-        return df_cs

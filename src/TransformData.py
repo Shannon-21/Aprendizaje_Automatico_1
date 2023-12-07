@@ -1,10 +1,13 @@
 import pandas as pd
 from src.Trained import Transformadores
 
+
 class TransformData:
-    def __init__(self, df):
-        self.df = df
+    def __init__(self):
         self.models = Transformadores()
+
+    def load_data(self, df):
+        self.df = df
 
     def frequency_encode_categorical(self):
         mapping_dict = self.models.encoder_cats
@@ -42,15 +45,15 @@ class TransformData:
         self.df[cats] = knn_imputer_cats.transform(self.df[cats])
 
     def estandarize(self):
-        no_estandarizar = self.models.binaries
         scaler = self.models.standar_scaler
+        no_estandarizar = self.df[self.models.binaries]
 
-        df_drop = self.df.drop(no_estandarizar + ['Year', 'Date'], axis=1)
+        df_drop = self.df.drop(self.models.binaries + ['Year', 'Date'], axis=1)
 
         data_scaled = scaler.transform(df_drop)
         self.df = pd.DataFrame(data_scaled, columns=df_drop.columns)
 
-        self.df[no_estandarizar] = self.df[no_estandarizar]
+        self.df[self.models.binaries] = no_estandarizar
     
     def obtain_pca(self):
         pca_model = self.models.pca_model
@@ -68,16 +71,3 @@ class TransformData:
         self.df['Pressure_Index'] = self.df['Pressure3pm'] * self.df['Pressure9am'] 
         self.df['Rainfall_Index'] = self.df['Rainfall'] * self.df['Sunshine'] 
         self.df.drop(['Season', 'WindDir3pm', 'WindSpeed9am', 'Humidity9am', 'Cloud3pm', 'Temp9am', 'Temp3pm', 'RainToday'], axis=1, inplace=True)
-    
-    def process_dataframe(self):
-        df_copy = self.df.copy()
-
-        df_winds = self.mapear_direcciones_viento(df_copy)
-        df_locations = self.mapear_localidades(df_winds)
-        df_encode = self.frequency_encode_categorical(df_locations)
-        df_imputed = self.impute_knn(df_encode)
-        df_standar = self.estandarize(df_imputed)
-        df_with_pca = self.obtain_pca(df_standar)
-        df_features = self.obtain_new_features(df_with_pca)
-
-        return df_features
