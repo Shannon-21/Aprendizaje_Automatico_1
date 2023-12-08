@@ -45,7 +45,7 @@ if st.button('Predecir', key='predict', help='Predice si lloverá el día de ma�
     transformed_df = transform_dataset(new_df)
     model = select_model('clasif' if modelo == '¿Lloverá mañana?' else 'regresion')
     prediction = make_predict(model, transformed_df, used_clasif=modelo == '¿Lloverá mañana?')
-    st.write(f'Predicción del modelo: {prediction}')
+    st.markdown(f"<h3 style='text-align: center;'>Según el modelo: {prediction}</h3>", unsafe_allow_html=True)
 
 
 st.markdown("<h3 style='text-align: center;'>Autores</h3>", unsafe_allow_html=True)
