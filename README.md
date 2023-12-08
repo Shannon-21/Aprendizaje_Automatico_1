@@ -10,8 +10,12 @@
 <br>
 
 **Fechas**:
-- 13/10/2023 (entrega 1, hasta item 3)
-- 27/10/2023 (entrega 2, hasta item 4)
+
+- 13/10/2023 (Primer entrega. Hasta item 3)
+- 27/10/2023 (Segunda entrega. Hasta item 4)
+- 20/11/2023 (Tercer entrega. Hasta ítem 5 y 6)
+- 7/12/2023 (Cuarta entrega. Hasta items 7, 8, 9 y 10)
+
 
 ---
 
@@ -46,36 +50,47 @@ streamlit run main.py
 
 ---
 
-## **Resumen**
-
-
-El dataset elegido consiste de variables meteorologicas de Australia en determinado periodo de tiempo que seran de interes para la predicion y clasificacion de la cantidad y posibilidad de lluvia en algun dia con ciertas caracteristicas mediante modelos estudiados en el cursado de la materia.\
-<br>
-
-El dataset cuenta con distintos tipos de varibables (continuas, categoricas, discretas, binarias), muchas de ellas son de utilidad para obtener informacion del climatica del registro (un dia particular), y otras son de utilidad para ubicacion espacio-temporal del registro.\
-<br>
-
-En esta primera etapa del trabajo practico, es de principal interes el analisis y tratamiento del conjunto de datos para conocer el contexto sobre el cual vamos a desarrollarnos, y luego realizar predicciones utilizando modelos de regresion lineal con diferentes caracteristicas, y comparar cual tiene mejor comportameinto a la hora de predecir.\
-<br>
-
-Es claro que un el modelo por si solo no puede realizar un buen trabajo si el dataset no es preprocesado para maximizar el rendimiento del entrenamiento. Por ello, la primer etapa es el tratamiento primario de los datos, donde se imputan, codifican, suavizan, y estandarizan las variables.\
-<br>
-
-Como segunda etapa planteamos el analisis descriptivo de los datos, ya que es de importancia conocer el contexto de los datos e interpretar correctamente como se relacionan las variables entre si.\
-<br>
-
-Luego, se realizan las predicciones con los diferentes modelos y se comparan sus rendimientos utilizando metricas de validacion para comprender cual y por que un modelo hace mejor que los demas.\
-<br>
-
-Por ultimo, se plantea elegir metodos de optimizcion de hiperparametros, mejorar la explicabilidad del modelo y simular la puesta en produccion de los mismos.
-
 
 ## **Acceso**
 
-Para poder acceder al deploy del proyecto lo puedes visitar en el siguiente link:
+Para poder acceder al deploy de la aplicación lo puedes visitar en el siguiente link:
 
-Link: https://aprendizajeautomatico1-wzveamkrgdnnyqvyrbrjfp.streamlit.app/
+*Link*: https://aprendizajeautomatico1-wzveamkrgdnnyqvyrbrjfp.streamlit.app/
 
-Además puedes visualizar el archivo con sus respectivas salidas directamente desde google colab:
 
-Link: https://drive.google.com/file/d/1Itfa8GS_oLb3NQ77ukn1l7NVXI_yRzZA/view?usp=sharing
+Para visualizar el desarrollo del proyecto descrito en el resumen debajo, puede acceder al entorno de google colab:
+
+*Link*: https://drive.google.com/file/d/1Itfa8GS_oLb3NQ77ukn1l7NVXI_yRzZA/view?usp=sharing
+
+---
+
+
+## **Resumen**
+
+El dataset elegido consiste de variables meteorológicas de Australia en determinado período de tiempo que serán de interes para la predición y clasificación de la cantidad y posibilidad de lluvia en algún día con ciertas características mediante modelos estudiados en el cursado de la materia.\
+<br>
+
+El dataset cuenta con distintos tipos de varibables (continuas, categoricas, discretas, binarias, fechas), muchas de ellas son de utilidad para obtener información climática del registro (un día particular), y otras son de utilidad para úbicacion espacio-temporal del registro.\
+<br>
+
+En la primera etapa del trabajo práctico, es de principal interés el análisis y tratamiento del conjunto de datos para conocer el contexto sobre el cual vamos a desarrollarnos. Se establecen lineamientos generales y limitaciones para contextualizar a los modelos solo en deteerminadas area de Australia para cierto periodo de tiempo.\
+<br>
+
+Es claro que un el modelo por si solo no puede realizar un buen trabajo si el dataset no es preprocesado para maximizar el rendimiento del entrenamiento. Por ello, la segunda etapa es el tratamiento primario de los datos, donde se imputan, codifican, suavizan, estandarizan, se balancean las clases, se crean nuevas variables y se adapta el dataset original para optimizar el eprendizaje de los modelos.\
+<br>
+
+La tercer etapa consiste en el entrenamiento y optmización de modelos de regresión lineal para la estimación de la variable continua de la cantidad de lluvia del dia posterior, utilizando gráficas, análisis y descripciones se encuentra un modelo óptimo para este contexto con la limitación de utilizar modelos lineales.\
+<br>
+
+La cuarta etapa consiste en el entrenamiento y optmización de modelos de regresión logistica para la estimación de la variable binaria de la presencia de lluvia del dia posterior. Nuevamente, mediante análisis e hiperparametrización se encuentra un modelo de clasificación óptimo, que resulta ser nuestro modelo final para el problema de clasificación.\
+<br>
+
+La anteultima etapa trata de resolver los dos problemas previos pero con un enfoque de modelos conexionistas de aprendizaje profundo. Para ello se han diseñado, optimizado y entrenado modelos de redes neuronales, primeramene para la estimación de la variable continua, y luego con un  modelo similar, para la estimación de la variale binaria. Se han encontrado resultados positivos que mejoran los rendimientos para el problema de regresión. Por lo que este modelo es el elegido para la aplicación final. Pero no es el caso del modelo de clasifación, ya que ha demostrado mejor rendimiento el modelo de regresión logística para este problema.\
+<br>
+
+
+Por último, se pretende desplegar una aplicación dentro de un servidor cuyo objetivo es que un usuario pueda ingresar datos metereológicos de ciudades de Australia en un formulario con datos limitados al contexto inicial, y que se pueda elejir el problema a resolver por la aplicación (clasificación o regresión) en base a los datos. Los datos ingresados se procesan y se realizan con ellos predicciones con los modelos entrenados para retornar en tiempo real una predicción.\
+<br>
+
+---
+
