@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 from code.index import transform_dataset, select_model, make_predict
 
-st.set_page_config(page_title='Lluvia en Australia', page_icon=':⛈️:', layout='wide')
+st.set_page_config(page_title='Lluvia en Australia', page_icon=':⛈️:')
 
 st.markdown("<h1 style='text-align: center;'>Lluvia en Australia</h1>", unsafe_allow_html=True)
-st.subheader('Este trabajo consiste en predecir si lloverá mañana en Australia.')
+st.markdown("<h4 style='text-align: center;'>Este trabajo consiste en predecir si lloverá mañana en Australia.</h4>", unsafe_allow_html=True)
 
-st.write('Formulario para ingresar la data:')
+st.markdown("<h5 style='text-align: center;'>Formulario para ingresar la data</h5>", unsafe_allow_html=True)
+
 
 df = pd.read_csv('data/df_filtrado.csv', usecols=lambda x: x not in ['Unnamed: 0', 'RainTomorrow', 'RainfallTomorrow'])
 columnas = df.columns
@@ -35,7 +36,7 @@ for i in range(len(columnas)):
 
 modelo = st.selectbox('¿Que quieres predecir?', ['¿Cuanto lloverá mañana?', '¿Lloverá mañana?'])
 
-if st.button('Predecir', key='predict', help='Predice si lloverá el día de mañana'):
+if st.button('Predecir', key='predict', help='Predice si lloverá el día de mañana', use_container_width=True):
     new_df = pd.DataFrame(columns=columnas)
 
     for columna, input_value in zip(columnas, inputs):
