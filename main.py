@@ -3,7 +3,8 @@ import pandas as pd
 from code.index import transform_dataset, select_model, make_predict
 
 
-st.title('Lluvia en australia')
+#st.title('Lluvia en australia') pero centrado
+st.markdown("<h1 style='text-align: center;'>Lluvia en Australia</h1>", unsafe_allow_html=True)
 st.subheader('Este trabajo consiste en predecir si lloverá mañana en Australia.')
 
 st.write('Formulario para ingresar la data:')
@@ -44,3 +45,9 @@ if st.button('Predecir', key='predict', help='Predice si lloverá el día de ma�
     model = select_model('clasif' if modelo == '¿Lloverá mañana?' else 'regresion')
     prediction = make_predict(model, transformed_df, used_clasif=modelo == '¿Lloverá mañana?')
     st.write(f'Predicción del modelo: {prediction}')
+
+
+# Constantino Ferrucci y Fabio Giampaoli ABAJO DE TODO
+st.markdown("<h3 style='text-align: center;'>Autores</h3>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Constantino Ferrucci y Fabio Giampaoli</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>2023</p>", unsafe_allow_html=True)

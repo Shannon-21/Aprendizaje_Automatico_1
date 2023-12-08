@@ -72,13 +72,13 @@ class Transformadores:
                                         'Spring': 0.24681306028456287,
                                         'Summer': 0.23710831482852207}}
 
-        self.knn_imputer_nums = joblib.load('models\knn_imputer_nums_model.joblib')
+        self.knn_imputer_nums = joblib.load('models/knn_imputer_nums_model.joblib')
 
-        self.knn_imputer_cats = joblib.load('models\knn_imputer_cats_model.joblib')
+        self.knn_imputer_cats = joblib.load('models/knn_imputer_cats_model.joblib')
 
-        self.standar_scaler = joblib.load('models\standar_scaler_model.joblib')
+        self.standar_scaler = joblib.load('models/standar_scaler_model.joblib')
 
-        self.pca_model = joblib.load('models\pca_model.joblib')
+        self.pca_model = joblib.load('models/pca_model.joblib')
 
         self.numerical_nulls = ['MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine', 'WindGustSpeed',
                                 'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm', 'Pressure9am',
