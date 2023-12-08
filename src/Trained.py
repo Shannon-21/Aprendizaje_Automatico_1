@@ -3,7 +3,13 @@ from keras.models import model_from_json
 
 
 class Transformadores:
+    """
+    Clase que contiene los transformadores para el dataset.
+    """
     def __init__(self):
+        """
+        Constructor de la clase.
+        """
         self.encoder_cats = {'Location': {'Sydney': 0.41639937494859774,
                                           'Melbourne': 0.360144748745785,
                                           'Canberra': 0.22345587630561725},
@@ -92,6 +98,9 @@ class Transformadores:
         self.best_classifier_model = joblib.load('models/best_logistic_model.joblib')
 
     def get_regressor_model(self):
+        """
+        Obtiene el modelo de regresion.
+        """
         json_file = open("models/best_nn_regressor_model.json", 'r')
         loaded_model_json = json_file.read()
         json_file.close()

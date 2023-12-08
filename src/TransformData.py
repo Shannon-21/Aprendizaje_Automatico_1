@@ -3,19 +3,36 @@ from src.Trained import Transformadores
 
 
 class TransformData:
+    """
+    Clase que contiene las transformaciones de los datos.
+    """
     def __init__(self):
+        """
+        Constructor de la clase.
+        """
         self.models = Transformadores()
 
     def load_data(self, df):
+        """
+        Carga los datos a transformar.
+        args:
+            df: dataframe con los datos a transformar
+        """
         self.df = df
 
     def frequency_encode_categorical(self):
+        """
+        Codifica las variables categoricas por frecuencia.
+        """
         mapping_dict = self.models.encoder_cats
 
         for column, mapping in mapping_dict.items():
             self.df[column] = self.df[column].map(mapping)
 
     def mapear_direcciones_viento(self):
+        """
+        Mapea las direcciones del viento.
+        """
         mapeo = {
             'N': 'N', 'NNE': 'N', 'NNW': 'N',
             'E': 'E', 'ENE': 'E', 'ESE': 'E',
@@ -29,6 +46,9 @@ class TransformData:
             self.df[columna] = self.df[columna].replace(mapeo)
 
     def mapear_localidades(self):
+        """
+        Mapea las localidades.
+        """
         mapeo = {'SydneyAirport': 'Sydney',
                 'MelbourneAirport': 'Melbourne'}
 
@@ -36,6 +56,9 @@ class TransformData:
         self.df.reset_index(drop=True, inplace=True)
 
     def impute_knn(self):
+        """
+        Imputa los valores nulos con KNN.
+        """
         knn_imputer_cats = self.models.knn_imputer_cats
         knn_imputer_nums = self.models.knn_imputer_nums
         nums = self.models.numerical_nulls
@@ -45,6 +68,9 @@ class TransformData:
         self.df[cats] = knn_imputer_cats.transform(self.df[cats])
 
     def estandarize(self):
+        """
+        Estandariza los datos.
+        """
         scaler = self.models.standar_scaler
         no_estandarizar = self.df[self.models.binaries]
 
@@ -56,6 +82,9 @@ class TransformData:
         self.df[self.models.binaries] = no_estandarizar
     
     def obtain_pca(self):
+        """
+        Obtiene las componentes principales.
+        """
         pca_model = self.models.pca_model
 
         reduced = pca_model.transform(self.df)
@@ -64,6 +93,9 @@ class TransformData:
         self.df = pd.concat([self.df, df_reduced_first], axis=1)
 
     def obtain_new_features(self):
+        """
+        Obtiene las nuevas caracteristicas.
+        """
         self.df['Humidity_Index'] = self.df['Humidity9am'] * self.df['Humidity3pm']
         self.df['Evaporation_Index'] = self.df['Sunshine'] * self.df['Evaporation']
         self.df['Wind_Index'] = self.df['WindGustDir'] * self.df['WindGustSpeed']

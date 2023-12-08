@@ -4,13 +4,22 @@ import calendar
 
 
 class ValidateData:
+    """
+    Clase que contiene las validaciones de los datos.
+    """
     def __init__(self):
         pass
 
     def load_data(self, df):
+        """
+        Carga los datos a validar.
+        """
         self.df = df
 
     def validar_dataset(self):
+        """
+        Valida que el dataset tenga las columnas y tipos de datos requeridos.
+        """
         expected_columns = [
             'Date', 'Location',
             'MinTemp', 'MaxTemp', 
@@ -49,15 +58,24 @@ class ValidateData:
         return self.df
 
     def filtrar_localidades(self):
+        """
+        Filtra las localidades a usar en el modelo.
+        """
         localidades = ['Sydney', 'SydneyAirport', 'Canberra', 'Melbourne', 'MelbourneAirport']
         self.df = self.df[self.df['Location'].isin(localidades)]
         self.df = self.df.reset_index(drop=True)
 
     def binarize_cols(self):
+        """
+        Binariza las columnas que lo necesitan.
+        """
         self.df['RainToday'] = self.df['RainToday'].eq('Yes').mul(1)
         self.df[self.df['RainToday'].isna()] = np.nan
 
     def procesar_fecha(self):
+        """
+        Procesa la fecha para obtener el año, mes y estación.
+        """
         self.df['Date'] = pd.to_datetime(self.df['Date'])
         self.df['Year'] = self.df['Date'].dt.year
         self.df['Month'] = self.df['Date'].dt.month
