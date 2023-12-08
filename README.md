@@ -72,6 +72,10 @@ Por ultimo, se plantea elegir metodos de optimizcion de hiperparametros, mejorar
 
 ## **Acceso**
 
-Puedes visualizar el archivo con sus respectivas salidas directamente desde google colab:
+Para poder acceder al deploy del proyecto lo puedes visitar en el siguiente link:
+
+Link: https://aprendizajeautomatico1-wzveamkrgdnnyqvyrbrjfp.streamlit.app/
+
+Además puedes visualizar el archivo con sus respectivas salidas directamente desde google colab:
 
 Link: https://drive.google.com/file/d/1Itfa8GS_oLb3NQ77ukn1l7NVXI_yRzZA/view?usp=sharing
