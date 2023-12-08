@@ -37,7 +37,6 @@ modelo = st.selectbox('¿Que quieres predecir?', ['¿Cuanto lloverá mañana?', 
 if st.button('Predecir', key='predict', help='Predice si lloverá el día de mañana'):
     new_df = pd.DataFrame(columns=columnas)
 
-    # Evalua si hay nulos, si hay nulos no hace nada
     for columna, input_value in zip(columnas, inputs):
         new_df[columna] = [input_value]
 

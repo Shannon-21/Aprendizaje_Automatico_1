@@ -15,6 +15,37 @@
 
 ---
 
+## **Instalación**
+
+Para ejecutar estos programas, se debe clonar el repositorio dentro de su local y posteriormente instalar las librerías necesarias para su ejecución. 
+
+Para ello, se recomienda crear un entorno virtual con `python` de la siguiente forma:
+
+```bash
+python -m venv venv
+```
+
+Luego activar el entorno virtual con:
+
+```bash
+source venv/bin/activate
+```
+_(En caso de utilizar Windows, el comando anterior cambia a `venv\Scripts\activate.bat`)_
+
+Luego instalar las librerías mediante `pip`:
+
+```bash
+pip install -r requirements.txt
+```
+
+Una vez instaladas las librerías, se puede ejecutar el programa mediante:
+
+```bash
+streamlit run main.py
+```
+
+---
+
 ## **Resumen**
 
 
@@ -43,8 +74,4 @@ Por ultimo, se plantea elegir metodos de optimizcion de hiperparametros, mejorar
 
 Puedes visualizar el archivo con sus respectivas salidas directamente desde google colab:
 
-Parte 1: https://drive.google.com/file/d/1Itfa8GS_oLb3NQ77ukn1l7NVXI_yRzZA/view?usp=sharing
-
-Parte 2: https://colab.research.google.com/drive/1fAJg2q44kdz2xVoEsZaFk9BKGwAMyaY8?usp=sharing
-
-Parte 3: https://colab.research.google.com/drive/1TmHG9jfYrZ7_V1xzbxMAnno5BNyeAw0b?usp=sharing
+Link: https://drive.google.com/file/d/1Itfa8GS_oLb3NQ77ukn1l7NVXI_yRzZA/view?usp=sharing
