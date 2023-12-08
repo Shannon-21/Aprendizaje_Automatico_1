@@ -41,4 +41,5 @@ def make_predict(model, df, used_clasif=False):
     if used_clasif:
         return 'Mañana Lloverá' if int(prediccion[0]) == 1 else 'No lloverá mañana'
     else:
-        return f'Mañana lloverá {str(round(prediccion[0][0], 3))} mm'
+        return f'Mañana lloverá {str(round(prediccion[0][0] if prediccion[0][0] > 0 else 0.0, 3))} mm'
+
